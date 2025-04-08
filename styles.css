@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* 防止文字被选中 */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wealth-counter {
+    text-align: center;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.money-display {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700;
+    margin: 1rem 0;
+}
+
+.wealth-message {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.money-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.money {
+    position: absolute;
+    color: #ffd700;
+    font-size: 2rem;
+    animation: rain 3s linear infinite;
+    z-index: 1;
+}
+
+.money-rain::before {
+    display: none; /* 移除旧的金钱雨实现 */
+}
+
+@keyframes rain {
+    0% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* 添加点击效果的样式 */
+.click-effect {
+    position: absolute;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+    text-shadow: 0 0 5px #ffd700;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+.golden-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
